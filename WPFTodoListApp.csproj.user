@@ -7,7 +7,21 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="TodoList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TodoList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="LoginView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

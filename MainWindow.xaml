@@ -6,27 +6,7 @@
         xmlns:local="clr-namespace:WPFTodoListApp"
         mc:Ignorable="d"
         Title="Todo App" Height="550" Width="400" ResizeMode="NoResize">
-    <Grid x:Name="app" Width="380" HorizontalAlignment="Center">
-        <Grid.ColumnDefinitions >
-            <ColumnDefinition Width="10px"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10px"/>
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="10px" />
-            <RowDefinition Height="35px"/>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="40px" />
-            <RowDefinition Height="40px" />
-            <RowDefinition Height="10px" />
-        </Grid.RowDefinitions>
-
-        <Label Content="Todo List" Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
-        <TextBox x:Name="input" Grid.Row="3" Grid.Column="1" Background="#FFC9E3FF" />
-        <Button Content="Add" Grid.Column="1" Grid.Row="4" Background="#FF00FF7E" FontWeight="Bold" Click="Add_Button_Click"/>
-        <ScrollViewer Grid.Row="2" Grid.Column="1" VerticalScrollBarVisibility="Auto" Background="#FFDFDFDF">
-            <StackPanel x:Name="taskList"/>
-        </ScrollViewer>
+    <Grid Width="380" >
+        <ContentControl x:Name="MainContent"/>
     </Grid>
 </Window>
