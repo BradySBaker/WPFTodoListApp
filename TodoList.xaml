@@ -26,7 +26,7 @@
         <TextBox x:Name="input" Grid.Row="3" Grid.Column="1" Background="#FFC9E3FF" />
         <Button Content="Add" Grid.Column="1" Grid.Row="4" Background="#FF00FF7E" FontWeight="Bold" Click="AddButton_Click"/>
         <ScrollViewer Grid.Row="2" Grid.Column="1" VerticalScrollBarVisibility="Auto" Background="#FFDFDFDF">
-            <StackPanel x:Name="taskList"/>
+            <StackPanel x:Name="taskList" />
         </ScrollViewer>
     </Grid>
 </UserControl>

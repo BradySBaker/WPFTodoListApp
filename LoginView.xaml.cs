@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,13 +24,38 @@ namespace WPFTodoListApp
     {
         public LoginView()
         {
+            //Environment.SetEnvironmentVariable("todoList_password", "test123", EnvironmentVariableTarget.User);
+            //Environment.SetEnvironmentVariable("todoList_user", "brady", EnvironmentVariableTarget.User);
+
             InitializeComponent();
         }
 
         private void LoginButton_Clicked(object sender, RoutedEventArgs e)
         {
-            Window window = Window.GetWindow(this);
-            window.Content = new TodoList();
+            string passwordEntered = PasswordBox.Password;
+            string userEntered = UsernameBox.Text;
+
+            string? envUsr = Environment.GetEnvironmentVariable("todoList_user");
+            string? envPw = Environment.GetEnvironmentVariable("todoList_password");
+
+            if (envPw != null && envUsr != null) {
+                if (passwordEntered == envPw && userEntered == envUsr) {
+                    Window window = Window.GetWindow(this);
+                    window.Content = new TodoList();
+                } else {
+                    MessageBox.Show("Incorrect credentials entered!");
+                }
+            } else {
+                MessageBox.Show("No user exists");
+            }
+        }
+
+        private void OnPasswordChanged(object sender, EventArgs e) {
+            LoginButton.IsEnabled = !string.IsNullOrEmpty(PasswordBox.Password) && !string.IsNullOrEmpty(UsernameBox.Text);
+        }
+
+        private void OnUserChanged(object sender, EventArgs e) {
+            LoginButton.IsEnabled = !string.IsNullOrEmpty(PasswordBox.Password) && !string.IsNullOrEmpty(UsernameBox.Text);
         }
     }
 }

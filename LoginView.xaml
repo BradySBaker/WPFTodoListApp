@@ -7,15 +7,30 @@
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="450">
     <Grid Width="380">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="120"/>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Login to view Todo List" Grid.Row="1" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
-        <Button Content="Login" Grid.Row="3" FontWeight="Bold" Click="LoginButton_Clicked"/>
+        <Label Content="Login" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
+        <Label Content="Enter Username" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"/>
+        <TextBox x:Name="UsernameBox" TextChanged="OnUserChanged" Grid.Row="3" Grid.Column="1" Width="200"/>
+        <Label Content="Enter Password" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center"/>
+        <PasswordBox PasswordChanged="OnPasswordChanged" x:Name="PasswordBox" Grid.Row="5" Grid.Column="1" Width="200"/>
+        <Button x:Name="LoginButton" Content="Login" Grid.Row="7" Grid.Column="1" FontWeight="Bold" Click="LoginButton_Clicked" Width="100" Height="30" IsEnabled="False"/>
+        
     </Grid>
 </UserControl>
